@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTodo } from '../context'
-
+import { MdDelete, MdModeEditOutline, MdOutlineSaveAlt } from "react-icons/md";
 
 function TodoList({todo}) {
     const [isTodoEditable, setIsTodoEditable] = useState(false)
@@ -39,7 +39,7 @@ function TodoList({todo}) {
             />
             {/* Edit, Save Button */}
             <button
-                className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0 disabled:opacity-50"
+                className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0 disabled:opacity-50 cursor-pointer"
                 onClick={() => {
                     if (todo.completed) return;
 
@@ -49,14 +49,14 @@ function TodoList({todo}) {
                 }}
                 disabled={todo.completed}
             >
-                {isTodoEditable ? "📁" : "✏️"}
+                {isTodoEditable ? <MdOutlineSaveAlt /> : <MdModeEditOutline />}
             </button>
             {/* Delete Todo Button */}
             <button
-                className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0"
+                className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center cursor-pointer items-center bg-gray-50 hover:bg-gray-100 shrink-0"
                 onClick={() => deleteTodo(todo.id)}
             >
-                ❌
+                <MdDelete />
             </button>
         </div>
   )
