@@ -1,7 +1,9 @@
 import { createContext, useContext } from "react";
 
 const todoContext = createContext({
-    todos: []
+    todos: [
+        {},{},{}
+    ]
 })
 
 export const useTodo = () =>{
