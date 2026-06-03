@@ -14,11 +14,11 @@ function App() {
   }
 
   const deleteTodo = (id) => {
-    setTodos((prev)=>(prev))
+    setTodos((prev)=>prev.filter((index)=> index.id!== id))
   }
 
-  const ToggleCompleted = () => {
-
+  const ToggleCompleted = (id) => {
+    setTodos((prev) => prev.map((prevTodo)=>prev === id ? {...prev, completed: !prevTodo.completed}: prevTodo))
   }
 
   
