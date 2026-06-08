@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {TodoProvider} from './context/index'
+import {TodoProvider} from './context/todo'
 import "./App.css";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
@@ -16,7 +16,7 @@ function App() {
   }
 
   const deleteTodo = (id) => {
-    setTodos((prev)=>prev.filter((index)=> index.id!== id))
+    setTodos((prev)=>prev.filter((todo)=> todo.id!== id))
   }
 
   const toggleComplete = (id) => {
